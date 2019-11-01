@@ -4,7 +4,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/dikeert/mon-go/types"
+	"github.com/dikeert/dwmon-go/types"
 	"github.com/jasonlvhit/gocron"
 )
 

@@ -3,7 +3,7 @@ package plugins
 import (
 	"time"
 
-	"github.com/dikeert/mon-go/types"
+	"github.com/dikeert/dwmon-go/types"
 	"github.com/jasonlvhit/gocron"
 )
 

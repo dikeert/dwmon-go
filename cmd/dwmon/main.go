@@ -7,9 +7,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/dikeert/mon-go/internal/plugins"
-	"github.com/dikeert/mon-go/internal/sinks"
-	"github.com/dikeert/mon-go/types"
+	"github.com/dikeert/dwmon-go/internal/plugins"
+	"github.com/dikeert/dwmon-go/internal/sinks"
+	"github.com/dikeert/dwmon-go/types"
 	"github.com/jasonlvhit/gocron"
 	"github.com/spf13/cobra"
 )
@@ -118,7 +118,7 @@ func getSink(cmd *command) (*output, error) {
 func createCommand() *command {
 	cmd := &command{
 		Command: cobra.Command{
-			Use:   "mon-go",
+			Use:   "dwmon",
 			Short: "Output status information",
 			Long:  "TBD",
 			Args:  cobra.ArbitraryArgs,

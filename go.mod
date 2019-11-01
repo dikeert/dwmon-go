@@ -1,4 +1,4 @@
-module github.com/dikeert/mon-go
+module github.com/dikeert/dwmon-go
 
 go 1.13
 
