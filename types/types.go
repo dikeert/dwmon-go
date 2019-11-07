@@ -10,6 +10,7 @@ type Sink func(string) error
 type Flags interface {
 	StringVar(*string, string, string, string)
 	IntVar(*int, string, int, string)
+	UintVar(*uint, string, uint, string)
 }
 
 type Plugin interface {

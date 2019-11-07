@@ -16,8 +16,9 @@ import (
 
 var oobPlugins = map[string]types.Plugin{
 	"clock":  &plugins.ClockPlugin{},
-	"wakeup": &plugins.WakeupPlugin{},
 	"echo":   &plugins.EchoPlugin{},
+	"mpd":    &plugins.MpdPlugin{},
+	"wakeup": &plugins.WakeupPlugin{},
 	"shell":  &plugins.ShellPlugin{},
 }
 
