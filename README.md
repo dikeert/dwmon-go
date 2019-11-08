@@ -60,6 +60,7 @@ There are a short number of plugins supported right now but they provide all the
 - `wakeup` - doesn't print anything but allows to send `USR1` signal to the process so it would re-generate the status string
 - `echo` - prints whatever is sent to it
 - `shell` - executes a shell command and prints output
+- `mpd` - prints currently playing song from MPD and also listens for changes in the daemon.
 
 Before plugins can be used, they must be enabled. You enable plugins by listing them in `--plugins` flag, like that: `--plugins=clock,wakeup`.
 
@@ -120,6 +121,30 @@ Example:
 {{shell "echo" "Hello, world!"}}
 ```
 will print "Hello, world!" into status string.
+
+## MPD
+
+A plugin that prints currently playing song in MPD.
+
+Plugins is able to print the following properties:
+
+ - `Title`
+ - `Album`
+ - `Artist`
+ - `AlbumArtist`
+ 
+**Format**
+
+Use function `{{ mpd }}` order to print current song in requested format. Format specified using function parameters.
+All of the unsupported parameters will be printed out verbatim.
+
+Example:
+
+```
+{{ mpd "Title" " - " "Artist" }}
+```
+
+Prints title of the currently playing song, then it prints " - ", then it prints artist of the currently playing song.
 
 # Sinks
 dwmon supports two sinks at the moment of writing:
