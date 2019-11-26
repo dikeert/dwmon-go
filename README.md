@@ -21,7 +21,15 @@ In order to print it to DWM's status bar change the sink:
 
 The format is normal [Go template](https://golang.org/pkg/text/template/) string where each plugin is a function.
 
-# How to use
+## How to install
+
+Currently the onle way to install the utility is standart `go get` so you're going
+to need to have [go](https://golang.org/dl/) installed
+
+Run `go get github.com/dikeert/dwmon-go` to download, build and install it
+into your `GOPATH`.
+
+## How to use
 
 Add it into your `.xinitrc` and specify plugins to enable and format of the status string. Here is mine:
 
@@ -52,7 +60,7 @@ XF86Audio{RaiseVolume,LowerVolume,Mute}
 
 This changes the volume by calling to `pamixer` and then sends `USR1` signal to `dwmon` causing it to re-generate status string so I can see the updated volume value right away.
 
-# Plugins
+## Plugins
 
 There are a short number of plugins supported right now but they provide all the extensibility necessary for basic use
 
@@ -68,7 +76,7 @@ Once enabed a plugin function can be used in `--format` string multiple times.
 
 Some plugin functions accept parameters. If a plugin function accepts parameters it accepts a variadic number of them. 
 
-## Clock
+### Clock
 
 A plugin to print current date and time. Accepts two parameters:
 
@@ -80,12 +88,14 @@ A plugin to print current date and time. Accepts two parameters:
 Use `clock` function in format. It accepts no parameters.
 
 Example:
+
 ```
 {{clock}}
 ```
+
 will print current date and time in format specified by `--clock-format` or using the default one.
 
-## Wakeup
+### Wakeup
 
 A plugin that when enabled allows to send `USR1` signal to `dwmon` process causing it to re-generate status string.
 
@@ -93,7 +103,7 @@ A plugin that when enabled allows to send `USR1` signal to `dwmon` process causi
 
 Function `wakeup` is exported as plugin system requires but it doesn't print anything.
 
-## Echo
+### Echo
 
 A plugin that prints whatever is supplied to it into status string. Useful for testing
 
@@ -107,7 +117,7 @@ Example:
 ```
 will print "Hello,World" into format.
 
-## Shell
+### Shell
 
 A plugin that prints output of a shell command into status string.
 
@@ -122,7 +132,7 @@ Example:
 ```
 will print "Hello, world!" into status string.
 
-## MPD
+### MPD
 
 A plugin that prints currently playing song in MPD.
 
@@ -146,7 +156,7 @@ Example:
 
 Prints title of the currently playing song, then it prints " - ", then it prints artist of the currently playing song.
 
-# Sinks
+## Sinks
 dwmon supports two sinks at the moment of writing:
  - `stdout`
  - `xsetroot`
