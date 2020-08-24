@@ -1,6 +1,8 @@
 package sinks
 
+import "os"
+
 func Stdout(output string) error {
-	println(output)
+	os.Stdout.WriteString(output)
 	return nil
 }
